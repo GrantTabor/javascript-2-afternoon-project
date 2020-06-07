@@ -175,6 +175,7 @@ function finder(arr){
       bool = true;
     }
   }
+  return bool;
 }
 
 
@@ -202,25 +203,59 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   removeItem(myGroceryList) --> [];
   addItem() --> [];
 */
+//myGroceryList = ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
+//Code Here\\
 
-//Code Here
-function removeItem(myGroceryList, item){
-  if(myGroceryList === false){
+function removeItem(myGroceryList, item) {
+  if(!myGroceryList || !item) {
     return [];
+  } else {
+    for(let i = 0; i < myGroceryList.length; i++) {
+      if(myGroceryList[i] === item) {
+        myGroceryList.splice(i, 1);
+      }
+    }  
+    return myGroceryList; 
   }
-  for(let i = 0; i < myGroceryList.length; i++){
-    if(myGroceryList[i] === item){
-      myGroceryList.slice(i, 1);
+}
+
+function addItem(myGroceryList, item) {
+  if(!myGroceryList || !item) {
+    return [];
+  } 
+   else {
+    myGroceryList.push(item);
+    return myGroceryList;
+  }
+}
+
+
+/*
+function removeItem(myGroceryList, item){
+  
+  if(myGroceryList == true && item ==true){
+    for(let i = 0; i < myGroceryList.length; i++){
+      if(myGroceryList[i] === item){
+        myGroceryList.slice(i, 1);
+      }
     }
+    return myGroceryList;
   }
+
+  else{
+    return [];
+  } 
 }
 function addItem(myGroceryList, item){
-  if(myGroceryList === false){
+  if(myGroceryList != true || item != true){
     return [];
   }
-  myGroceryList.push(item);
+  else {
+    myGroceryList.push(item);
+  }
+  return myGroceryList;
 }
-
+*/
 ////////// PROBLEM 9 //////////
 
 /*
@@ -231,7 +266,7 @@ function addItem(myGroceryList, item){
 function maker(){
   let arr=[];
   for(i=1; i <= 215; i++){
-    arr.push[i];
+    arr.push(i);
   }
   return arr;
 }
@@ -251,12 +286,15 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   
 //Code Here
 function addTen(numbers){
+  let newArr = [];
   for(let i = 0; i < numbers.length; i++){
-    numbers[i] += 10;
+    let newNum = Number(numbers[i]) + 10;
+   newArr.push(newNum);
+   //alert(numbers[0]);
   }
-  return numbers;
+  return newArr;
 }
-
+addTen(numbers);
 
 ////////// PROBLEM 11 //////////
 
